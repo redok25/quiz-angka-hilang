@@ -1,0 +1,380 @@
+html {
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    user-select: none;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f3f5fc;
+}
+
+#main-wrapper {
+    width: 70%;
+    background: white;
+    margin: 1em auto;
+    border-radius: 18px;
+    border: 1px solid #e7ecfb;
+    box-shadow: 0 0 30px #e7ecfb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-wrapper {
+    text-align: center;
+}
+
+#start-title {
+    font-weight: bold;
+    color: #666f99;
+    font-size: 42px;
+}
+
+#start-title span {
+    font-size: .8em;
+}
+
+#start-username-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#username {
+    margin: 48px 0;
+    background: #f3f5fc;
+    padding: 12px 18px;
+    border-radius: 50px;
+    border: 1px solid #e7ecfb;
+    text-align: center;
+    font-size: 16px;
+    color: #666f99;
+    transition: enterUsername, background-color 300ms ease-out;
+}
+
+#username:focus, .btn:focus, input:focus, #sort-btn:focus {
+    outline: 1px dashed #666f99;
+}
+
+#username-placeholder {
+    color: #bcc0d2;
+    font-weight: 400;
+    position: absolute;
+    pointer-events: none;
+    transition: 300ms ease-out;
+}
+
+.btn {
+    padding:9px 18px;
+    cursor: pointer;
+    background: #666f99;
+    border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: #565e81;
+}
+
+.btn:active {
+    background: #414762;
+}
+
+#quiz-wrapper {
+    margin: 1em 0;
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+}
+
+#progress-wrapper {
+    position: relative;
+    top: -60px;
+    padding: 0 30px;
+    margin-top: 60px;
+}
+
+#progress-icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fas, .fab {
+    font-size: 30px;
+}
+
+#progress-html, #progress-css, #progress-js, #progress-end {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3f5fc;
+    border: 1px solid #e7ecfb;
+    position: relative;
+    z-index: 2;
+    transition: 300ms ease-out;
+}
+
+#progress-html {
+    background: #e7ecfb;
+    border-color: #d3dcf8;
+}
+
+.fa-html5 {
+    color: #f16529;
+}
+
+.fa-css3-alt {
+    color: #2aa8e0;
+}
+
+.fa-js-square {
+    color: #f8be01;
+}
+
+#progress-bar {
+    height: 20px;
+    width: 0;
+    background: #e7ecfb;
+    position: absolute;
+    top: 21px;
+    left: 33px;
+    z-index: 1;
+    transition: 300ms ease-out;
+}
+
+#progress-bar-uncompleted {
+    height: 20px;
+    width: calc(100% - 66px);
+    border-top: 1px solid #e7ecfb;
+    border-bottom: 1px solid #e7ecfb;
+    position: absolute;
+    top: 21px;
+    left: 33px;
+    z-index: 1;
+}
+
+.fa-flag-checkered {
+    color: #666f99;
+}
+
+#question-wrapper {
+    text-align: center;
+    margin-top: -30px;
+    width: 100%;
+}
+
+#question {
+    font-size: 18px;
+    color: #666f99;
+    width: 100%;
+}
+
+#answers-wrapper {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answer-wrapper {
+    margin: 6px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #e7ecfb;
+    margin-left: -12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms ease-out;
+    pointer-events: none;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+}
+
+.answer-wrapper:hover .checkmark {
+    background: #d3dcf8;
+}
+
+.answer-wrapper input:checked ~ .checkmark {
+    background: #666f99;
+}
+
+.answer-wrapper input:checked ~ .checkmark::after {
+    opacity: 1;
+}
+
+.answer-input {
+  position: relative;
+  left: -8px;
+  transform: scale(1.4);
+}
+
+input[type="radio"] {
+    margin: 9px 0;
+    height: 20px;
+    width: 20px;
+}
+
+.answer {
+    color: #666f99;
+}
+
+#next-btn-wrapper, #start-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#leaderboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#leaderboard-title, table, tr {
+    text-align: center;
+    color: #666f99;
+}
+
+#retry-btn-wrapper {
+    text-align: center;
+}
+
+table {
+    -webkit-border-vertical-spacing: 12px;
+    margin: 30px 0;
+}
+
+#table-username-title, .table-username {
+    position: relative;
+    left: -15px;
+}
+
+#sort-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666f99;
+    padding: 9px;
+}
+
+#sort-btn:hover .fa-arrows-alt-v {
+    animation: sortArrowEnter 300ms ease-out;
+}
+
+.fa-arrows-alt-v {
+    position: relative;
+    left: 1px;
+    top: -1px;
+    font-size: 16px;
+    transition: 300ms ease-out;
+}
+
+#quiz-wrapper, #leaderboard-wrapper {
+    display: none;
+}
+
+
+@media (max-width: 720px) {
+    body {
+      background: white;
+    }
+}
+
+@media (max-width: 400px) {
+    #main-wrapper {
+      width: 90%;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .checkmark {
+        top: 5px;
+        left: -1px;
+    }
+
+    .checkmark::after {
+        left: 6px;
+        top: 6px;
+    }
+
+    #username-placeholder {
+        left: 110px;
+        top: 60px;
+    }
+}
+
+#quiz-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#quiz-wrapper table td, #quiz-wrapper table th {
+  padding: 8px;
+}
+
+
+
+#quiz-wrapper table th {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+#info-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 1em .3em;
+  padding: .5em 1em;
+  border: 1px solid #e7ecfb;
+  border-radius: 10px;
+  background: white;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: #666f99;
+}
+
+@media (max-width: 1100px) {
+    #info-box {
+     font-size: 10pt
+    }
+}
+
